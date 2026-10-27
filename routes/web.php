@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
@@ -68,6 +69,14 @@ Route::permanentRedirect('/katalog-lama', '/info');
 
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
 Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+
+
+Route::get('/products', [ProductsController::class, 'index']);
+/*Route::get('/products/{id}',function ($id) {
+    return 'Produk #' . $id;
+});*/
+
+Route::get('/products/{id}', [ProductsController::class, 'show']);
 
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
 
